@@ -1,0 +1,42 @@
+---
+layout: base
+---
+<div class="city-width-container">
+  <nav class="city-breadcrumbs" aria-label="Breadcrumb">
+    <ol class="city-breadcrumbs__list">
+      <li class="city-breadcrumbs__list-item">
+        <a class="city-breadcrumbs__link" href="/">{{site.title}}</a>
+      </li>
+      <li class="city-breadcrumbs__list-item" aria-current="page">{{page.title}}</li>
+    </ol>
+  </nav>
+  
+  <main class="city-main-wrapper city-main-wrapper--auto-spacing" id="main-content">
+    <div class="city-grid-row">
+      <div class="city-grid-column-two-thirds-from-desktop">
+        <div class="city-!-margin-bottom-8">
+          <h1 class="city-heading-xl">{{ page.title | escape }} <strong class="city-tag">{{page.status}}</strong></h1>
+        </div>
+      </div>
+    </div>
+    <div class="city-grid-row">
+      <div class="city-grid-column-two-thirds">
+        <nav>
+          <h2 class="city-heading-s">Contents</h2>
+          {{ content | toc_only }}
+        </nav>
+        <hr class="city-section-break city-section-break--visible city-!-margin-bottom-5">
+        <article>
+          {{ content | inject_anchors }}
+        </article>
+      </div>
+      <div class="city-grid-column-one-third">
+          <aside>
+            <ul>
+              <li><a class="city-link" href="{{ site.github_url }}/edit/main/{{ page.path | replace: 'index.html', '' }}">Suggest a change to this page</a></li>
+            </ul>
+          </aside>
+      </div>  
+    </div>
+  </main>
+</div>

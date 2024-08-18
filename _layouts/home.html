@@ -1,0 +1,94 @@
+---
+layout: base
+---
+{% assign sorted_strategy = site.strategy | sort: 'order' %}
+<main id="main-content" role="main">
+  <header class="app-hero">
+    <div class="app-hero__content city-width-container">
+      <div class="city-main-wrapper">
+        <div class="city-grid-row">
+          <div class="city-grid-column-two-thirds">
+            <div class="app-hero__heading--inverse city-!-margin-top-0 city-!-margin-bottom-6">
+              <span class="city-caption-xl">
+                eThekwini
+              </span>
+              <h1 class="city-heading-xl">
+                {{page.title}}
+              </h1>
+            </div>
+            <p class="city-body-lead app-hero-lead app-hero__body--inverse city-!-padding-bottom-1">
+              {{page.description}}
+            </p>
+          </div>
+          <div class="city-grid-column-one-third">
+            <p class="city-body-s app-hero__body--inverse">
+              <a class="city-link city-link--inverse" href="mailto:{{site.team_email}}">Contact the data strategy team</a>
+              with any comments or questions.
+            </p>
+          </div>
+        </div>
+      </div>
+    </div>
+  </header>
+
+  <div class="city-width-container">
+    <div class="city-main-wrapper">
+      <div class="city-grid-row">
+        {% for chapter in sorted_strategy %}
+            <!-- {% if chapter.status == 'draft' %}
+              <a href="{{ chapter.url}}">{{ chapter.title }} ({{ chapter.status }})</a>
+            {% else %}
+              {{ chapter.title }} ({{ chapter.status }})
+            {% endif %} -->
+            <div class="city-grid-column-one-third">
+              <h2 class="city-heading-s   city-!-margin-bottom-1">
+                {% if chapter.status == 'unpublished' %}
+                  {{ forloop.index }}. {{ chapter.title }} 
+                {% else %}
+                  {{ forloop.index }}. 
+                  <a class="city-link" href="{{chapter.url}}">
+                    {{ chapter.title }}</a> 
+                    <strong class="city-tag">{{ chapter.status }}</strong>                
+                {% endif %}
+              </h2>
+              <p class="city-body-s">
+                {{chapter.description}}
+              </p>
+            </div>
+        {% endfor %}
+      </div>
+    </div>
+  </div>
+<!-- 
+  <div class="app-whats-new">
+    <div class="city-width-container">
+      <div class="city-main-wrapper">
+        <div class="city-grid-row">
+          <div class="city-grid-column-two-thirds">
+            <h2 id="whats-new" class="city-heading-l">What’s new</h2>
+            <p class="city-body">12 July 2024: We’ve released GOV.UK Frontend v5.4.1. We've improved how the Breadcrumbs component appears on screen readers and fixed some alignment issues with Radio buttons and Checkboxes.</p>
+            <p class="city-body">Read the <a href="https://github.com/alphagov/govuk-frontend/releases/tag/v5.4.1" class="govuk-link">full release notes</a> to see what’s changed.</p>
+            <br>
+            <p class="city-body"><a href="https://mailchi.mp/d484adee17c1/email-updates" class="govuk-link">Sign up to get update emails about the Design System</a>.</p>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div> -->
+
+  <div class="city-width-container">
+    <div class="city-main-wrapper">
+      <div class="city-grid-row">
+        <h2 class="city-heading-m">Use-cases</h2>
+        <ul class="city-body">
+          {% for mission in site.missions %}
+            <li>
+              <a href="{{ mission.url}}">{{ mission.title }}</a> <strong class="city-tag">{{ mission.phase }}</strong>
+            </li>
+          {% endfor %}
+        </ul>
+      </div>
+    </div>
+  </div>
+
+</main>
