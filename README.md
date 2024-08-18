@@ -1,2 +1,5 @@
-# dstoolkit.github.io
-OCL Data Strategy Toolkit
+
+
+## Running locally
+npm run build:css
+jekyll serve
