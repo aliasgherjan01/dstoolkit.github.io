@@ -1,1 +1,62 @@
-theme: jerkyll-theme-cayman
+title: Digital and Data Toolkit
+standard_title: Data and digital standarda
+city_short_name: OCL
+city_long_name: Open Cities Lab
+footer_text: Open Cities Lab (OCL) is creating a data strategy toolkit as part of UK Foreign Commission Development Office (FCDO) funding.
+copyright_text: 
+copyright_url: 
+team_email: aliasgher@opencitieslab.org
+github_url: https://github.com/opendatadurban/etkdatastrat
+markdown: kramdown
+kramdown:
+  input: GFM
+  hard_wrap: false
+  auto_ids: true
+  syntax_highlighter: rouge
+toc:
+  min_level: 2
+  max_level: 6
+  ordered: false
+  heading: "Table of Contents"
+  list_class: city-list city-list--bullet city-body-s
+plugins_dir: _plugins
+plugins:
+  - jekyll-feed
+  - jekyll-toc
+header_pages:
+  - _pages/about.md
+  - _standard/getting_started.md
+  - _pages/standards.md
+  - _pages/ways_of_working.md
+  - _pages/usecase_guidance.md
+  - _pages/CDO_manual.md
+
+include:
+  - _pages
+  - _strategy
+  - _manual
+  - _standard
+
+collections:
+  missions:
+    output: true
+  strategy:
+    output: true
+  manual:
+    permalink: /:collection/:path/
+    output: true
+
+manual_category_order:
+  - Getting started
+  - Ways of working
+  - Data infrastructure
+
+
+sass:
+  sass_dir: _sass
+  style: compressed
+
+assets:
+  sources:
+    - _sass
+    - assets/css
